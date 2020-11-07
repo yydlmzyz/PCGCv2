@@ -8,9 +8,6 @@
   <img src="figs/framework.png?raw=true" alt="introduction" width="800"/> 
 
   **Multiscale PCG Compression:**  (a) "Conv c*n^3" denotes the sparse convolution with 'c' output channels and n^3 kernel size, "Q" stands for Quantization, "AE" and "AD" are Arithmetic Encoder and Decoder respectively. "IRN" is Inception-Residual Network used for efficient feature aggregation. (a) network structure of IRN unit, (c) adaptive contexts conditioned on autoregressive priors.
-
-
-
   <img src="figs/reconstruct.png?raw=true" alt="introduction" width="800"/> 
 
 ​	**Binary classification based hierarchical reconstruction**: The top part shows the encoding process: **(a), (b), (c), (d)** are exemplified from a size of 32^3 to  4^3, by halving each geometric dimension scale step-by-step; The bottom part illustrates corresponding  hierarchical reconstructions, geometric models are upscaled and classified gradually from the rightmost to the leftmost position: **(e), (g), (i)** are convolutionally upscaled from lower scales with size of  8^3, 16^3 and 32^3. Different colors are used to differentiate the **probabilities of voxel-being-occupied** (i.e., the greener, the closer  to 1, and the bluer, the closer to 0); and **(f), (h), (j)** are the reconstructions after classification with green blocks for true classified voxels,  blue for false positive, and red for false negative voxels.
@@ -71,9 +68,8 @@ See `results.ipynb`
 ### Qualitative Evaluation
 <p align="center">
   <img src="figs/vis.png?raw=true" alt="introduction" width="800"/>
-  
-Visual comparison of ``Redandblack'' for ground truth, our solution, V-PCC, and G-PCC.
  </p>  
+
 ## Update
 - 2020.06 paper submission.
 - 2020.10.29 open source code.

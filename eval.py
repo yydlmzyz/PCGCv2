@@ -537,11 +537,10 @@ def parse_args():
     parser.add_argument("--ckptdir", type=str, default='./ckpts/c8_a10_32000.pth', help="ckptdir")
     parser.add_argument("--voxel_size", type=int, default=1, help="voxel_size")
     parser.add_argument("--res", type=int, default=1024, help="resolution")
-    parser.add_argument("--max_num", type=int, default=1e6, help="max number of points")
+    parser.add_argument("--max_num", type=int, default=1e7, help="max number of points")
     parser.add_argument("--rho", type=float, default=1, help="output_num/input_num")
-    parser.add_argument("--csvrootdir", type=str, default='results/multiscalepcgc', help="csvrootdir")
+    parser.add_argument("--csvrootdir", type=str, default='results/multiscalepcgc/d2/', help="csvrootdir")
     parser.add_argument("--test_all", default=False, action='store_true')
-
     args = parser.parse_args()
     return args
 
@@ -581,30 +580,30 @@ if __name__ == '__main__':
             './ckpts/c8_a10_32000.pth']
         voxel_sizes = [1, 1, 1, 1, 1, 1, 1]
 
-        # 8i
-        rhos = [1.4, 1.2, 1, 1, 1, 1, 1]
-        # rhos = [1, 1, 1, 1, 1, 1, 1] # for D2
-        for idx, filedir in enumerate(['testdata/8iVFB/longdress_vox10_1300_n.ply', 
-                                    'testdata/8iVFB/redandblack_vox10_1550_n.ply',
-                                    'testdata/8iVFB/loot_vox10_1200_n.ply',
-                                    'testdata/8iVFB/soldier_vox10_0690_n.ply']):
-            eval(filedir, csv_root_dir, ckptdirs, voxel_sizes, rhos, 1024, max_num)      
-            os.system('rm *.ply *.bin')
+        # # 8i
+        # rhos = [1.4, 1.2, 1, 1, 1, 1, 1]
+        # # rhos = [1, 1, 1, 1, 1, 1, 1] # for D2
+        # for idx, filedir in enumerate(['testdata/8iVFB/longdress_vox10_1300_n.ply', 
+        #                             'testdata/8iVFB/redandblack_vox10_1550_n.ply',
+        #                             'testdata/8iVFB/loot_vox10_1200_n.ply',
+        #                             'testdata/8iVFB/soldier_vox10_0690_n.ply']):
+        #     eval(filedir, csv_root_dir, ckptdirs, voxel_sizes, rhos, 1024, max_num)      
+        #     os.system('rm *.ply *.bin')
 
-        # mvub
-        rhos = [1.3, 1.2, 1, 1, 1, 1, 1]
-        # rhos = [1, 1, 1, 1, 1, 1, 1] # for D2
-        for idx, filedir in enumerate(['testdata/MVUB/andrew_vox9_frame0000.ply', 
-                                    'testdata/MVUB/david_vox9_frame0000.ply',
-                                    'testdata/MVUB/phil_vox9_frame0139.ply',
-                                    'testdata/MVUB/sarah_vox9_frame0023.ply']):
-            eval(filedir, csv_root_dir, ckptdirs, voxel_sizes, rhos, 512, max_num)      
-            os.system('rm *.ply *.bin')
+        # # mvub
+        # rhos = [1.3, 1.2, 1, 1, 1, 1, 1]
+        # # rhos = [1, 1, 1, 1, 1, 1, 1] # for D2
+        # for idx, filedir in enumerate(['testdata/MVUB/andrew_vox9_frame0000.ply', 
+        #                             'testdata/MVUB/david_vox9_frame0000.ply',
+        #                             'testdata/MVUB/phil_vox9_frame0139.ply',
+        #                             'testdata/MVUB/sarah_vox9_frame0023.ply']):
+        #     eval(filedir, csv_root_dir, ckptdirs, voxel_sizes, rhos, 512, max_num)      
+        #     os.system('rm *.ply *.bin')
 
         # owlii
-        rhos = [1.2, 1.1, 1, 1, 1, 1, 1]
-        # rhos = [1, 1, 1, 1, 1, 1, 1] # for D2
+        # rhos = [1.2, 1.1, 1, 1, 1, 1, 1]
+        rhos = [1, 1, 1, 1, 1, 1, 1] # for D2
         for idx, filedir in enumerate(['testdata/Owlii/basketball_player_vox11_00000200.ply', 
                                     'testdata/Owlii/dancer_vox11_00000001.ply']):
-            eval(filedir, csv_root_dir, ckptdirs, voxel_sizes, rhos, 512, max_num)      
+            eval(filedir, csv_root_dir, ckptdirs, voxel_sizes, rhos, 2048, max_num)      
             os.system('rm *.ply *.bin')
